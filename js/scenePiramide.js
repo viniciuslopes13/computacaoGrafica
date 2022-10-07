@@ -46,52 +46,29 @@ const uvs = new Float32Array([
 	1.0, 0.0,
 	1.0, 1.0,
 
+	0.0, 0.0,
 	1.0, 1.0,
 	0.0, 1.0,
-	0.0, 0.0,
 
-	0.0, 0.0,
+	0.5, 0.5,
+	1.0, 1.0,
+	0.0, 1.0,
+
+	0.5, 0.5,
 	1.0, 0.0,
 	1.0, 1.0,
 
-	1.0, 1.0,
-	0.0, 1.0,
-	0.0, 0.0,
-
+	0.5, 0.5,
 	0.0, 0.0,
 	1.0, 0.0,
-	1.0, 1.0,
 
-	1.0, 1.0,
+	0.5, 0.5,
 	0.0, 1.0,
-	0.0, 0.0,
+	0.0, 0.0
 
-	0.0, 0.0,
-	1.0, 0.0,
-	1.0, 1.0,
-
-	1.0, 1.0,
-	0.0, 1.0,
-	0.0, 0.0,
-
-	0.0, 0.0,
-	1.0, 0.0,
-	1.0, 1.0,
-
-	1.0, 1.0,
-	0.0, 1.0,
-	0.0, 0.0,
-
-	0.0, 0.0,
-	1.0, 0.0,
-	1.0, 1.0,
-
-	1.0, 1.0,
-	0.0, 1.0,
-	0.0, 0.0,
 ]);
 
-const texture = new THREE.TextureLoader().load('textures/tux.png');
+const texture = new THREE.TextureLoader().load('textures/pedras.jpg');
 
 
 // itemSize = 3 because there are 3 values (components) per vertex
@@ -109,8 +86,8 @@ camera.position.z = 5;
 function animate() {
 	requestAnimationFrame(animate);
 
-	mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.01;
+	mesh.rotation.x += 0.02;
+	mesh.rotation.y += 0.02;
 
 	renderer.render(scene, camera);
 };

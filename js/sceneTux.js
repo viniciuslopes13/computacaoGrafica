@@ -66,7 +66,7 @@ const uvs = new Float32Array([
 	1.0, 1.0,
 	0.0, 1.0,
 	0.0, 0.0,
-
+/*
 	0.0, 0.0,
 	1.0, 0.0,
 	1.0, 1.0,
@@ -105,7 +105,7 @@ const uvs = new Float32Array([
 
 	1.0, 1.0,
 	0.0, 1.0,
-	0.0, 0.0,
+	0.0, 0.0,*/
 ]);
 
 const texture = new THREE.TextureLoader().load('textures/tux.png');
@@ -115,8 +115,8 @@ const texture = new THREE.TextureLoader().load('textures/tux.png');
 quad.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
 quad.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
-const mat = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
-//const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+//const mat = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
 const mesh = new THREE.Mesh(quad, mat);
 scene.add(mesh)
 
