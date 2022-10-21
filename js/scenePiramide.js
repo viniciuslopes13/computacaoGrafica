@@ -6,6 +6,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const quad = new THREE.BufferGeometry();
+const quad2 = new THREE.BufferGeometry();
 // create a simple square shape. We duplicate the top left and bottom right
 // vertices because each vertex needs to appear once per triangle.
 const vertices = new Float32Array([
@@ -75,10 +76,15 @@ const texture = new THREE.TextureLoader().load('textures/pedras.jpg');
 quad.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
 quad.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
 
-//const mat = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+quad2.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+quad2.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
+
+const aramado = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
 const mat = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
 const mesh = new THREE.Mesh(quad, mat);
-scene.add(mesh)
+const mesh2 = new THREE.Mesh(quad2,aramado);
+scene.add(mesh);
+scene.add(mesh2);
 
 
 camera.position.z = 5;
@@ -88,6 +94,12 @@ function animate() {
 
 	mesh.rotation.x += 0.02;
 	mesh.rotation.y += 0.02;
+
+	mesh2.rotation.x += 0.02;
+	mesh2.rotation.y += 0.02;
+
+	mesh2.position.x = -2;
+	mesh.position.x = 2;
 
 	renderer.render(scene, camera);
 };
